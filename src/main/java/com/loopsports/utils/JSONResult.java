@@ -2,6 +2,8 @@ package com.loopsports.utils;
 
 import com.alibaba.fastjson.JSON;
 
+import java.time.Instant;
+
 public class JSONResult {
 
     /**
@@ -13,6 +15,7 @@ public class JSONResult {
     private Object data;
     private boolean needCached;
     private String url;
+    private Instant time;
 
     public String getUrl() {
         return url;

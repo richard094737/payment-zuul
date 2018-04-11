@@ -1,7 +1,6 @@
 package com.loopsports.utils;
 
 import com.loopsports.exception.GlobalException;
-import sun.reflect.annotation.ExceptionProxy;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -53,6 +52,6 @@ public class ResultGenerator {
                 .setCode(exception.getCode())
                 .setMessage(exception.getMessage())
                 .setData("")
-                .setUrl(request.getRequestURL().toString());
+                .setUrl(request.getRequestURI().toString());
     }
 }

@@ -1,31 +1,17 @@
 spring:
   application:
-    name: service-zuul
+    name: payment-api-gatway
+
+  cache:
+    type: redis
+
+  profiles:
+    active: dev
 
 server:
   port: 8764
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://peer1:1111/eureka/,http://peer2:2222/eureka/
 
-zuul:
-  ratelimit:
-    enabled: true
-    behind-proxy: true
-    default-policy-list:
-      - limit: 10
-        quota: 3
-        refresh-interval: 6
-        type:
-          - user
-          - origin
-          - url
 
-  routes:
-    payapi:
-      path: /payment/**
-      serviceId: sample
 
 
