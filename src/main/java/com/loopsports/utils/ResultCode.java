@@ -11,7 +11,9 @@ public enum ResultCode {
     NOT_FOUND(404, "接口不存在"),//接口不存在
     INTERNAL_SERVER_ERROR(500, "服务器内部错误"),//服务器内部错误
     TOO_MANY_REQUEST(429, "服务器限制请求"),
+    UNAUTHORIZE(999,"未授权"),
     GONE(410, "服务器不在服务状态");
+
 
 
     private int code;

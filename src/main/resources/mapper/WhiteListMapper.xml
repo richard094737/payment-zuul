@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loopsports.mapper.MerchantMapper">
+    <resultMap id="whiteListMap" type="com.loopsports.domain.WhiteList">
+        <id property="whiteListId" column="white_list_id"/>
+        <result property="merId" column="mer_id"/>
+        <result property="merNo" column="mer_no"/>
+        <result property="listType" column="list_type"/>
+        <result property="listValue" column="list_value"/>
+        <result property="status" column="status"/>
+        <result property="dataState" column="data_state"/>
+        <result property="createTime" column="create_time"/>
+        <result property="modifiedTime" column="modified_time"/>
+    </resultMap>
+
+    <select id="checkeDaifuOnOff" resultType="java.lang.Long">
+        SELECT count(*)
+        WHERE  data_state = 0 AND status = 2 AND mer_no = # {merNo}  AND list_type = #{gateway}
+
+    </select>
+
+    <select id="checkeDaifuWhiteList" resultType="com.loopsports.domain.WhiteList">
+        SELECT
+            white_list_id whiteListId, mer_id merId,
+            mer_no merNo, list_type listType, list_value listValue,
+            status status,data_state dataState,
+            create_time createTime, modified_time modifiedTime
+          FROM payment_mer_white_list
+        WHERE data_state = 0 AND mer_no = # {merNo} AND status = 1 AND list_type = #{gateway}
+    </select>
+</mapper>

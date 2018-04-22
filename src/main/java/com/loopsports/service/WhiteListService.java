@@ -1,16 +1,8 @@
 package com.loopsports.service;
 
-import com.loopsports.dao.WhiteListDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import javax.servlet.http.HttpServletRequest;
 
-@Service
-public class WhiteListService {
+public interface WhiteListService {
 
-    @Autowired
-    private WhiteListDao  whiteListDao;
-
-    public void saveWhiteList(){
-        whiteListDao.saveWhiteList();
-    }
+    boolean checkDaifuWhiteList(HttpServletRequest request) throws Exception;
 }

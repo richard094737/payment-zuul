@@ -1,19 +1,13 @@
 package com.loopsports.dao;
 
-import com.loopsports.redis.BaseRedisDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
+import com.loopsports.domain.WhiteList;
 
-@Repository
-public class WhiteListDao {
+import java.util.List;
 
-    @Autowired
-    BaseRedisDao baseRedisDao;
+public interface WhiteListDao {
 
-    public void saveWhiteList(){
-        baseRedisDao.getValOps().set("test", "test");
-    }
+    Long  checkeDaifuOnOff(String merNo, Integer gateway);
+    List<WhiteList> getDaifuWhiteList(String merNo, Integer gateway);
 
-    
 }

@@ -2,24 +2,29 @@ package com.loopsports.filter;
 
 import com.loopsports.service.WhiteListService;
 import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class WhiteListFilter extends ZuulFilter{
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-    private Logger logger = LoggerFactory.getLogger(WhiteListFilter.class);
+public class OtherWhiteListFilter extends ZuulFilter{
+
+    private Logger logger = LoggerFactory.getLogger(OtherWhiteListFilter.class);
+
     @Autowired
     WhiteListService whiteListService;
 
     @Override
     public String filterType() {
-        return FilterType.PRE.type();
+        return FilterType.PRE.type() ;
     }
 
     @Override
     public int filterOrder() {
-        return 1;
+        return 0;
     }
 
     @Override
@@ -29,8 +34,9 @@ public class WhiteListFilter extends ZuulFilter{
 
     @Override
     public Object run() {
-        logger.info("stringkdsjfkdsjfkksjdfkdsjkj");
-        whiteListService.saveWhiteList();
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+        HttpServletResponse response = ctx.getResponse();
         return null;
     }
 }

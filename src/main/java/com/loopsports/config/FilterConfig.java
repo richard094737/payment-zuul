@@ -1,6 +1,6 @@
 package com.loopsports.config;
 
-import com.loopsports.filter.WhiteListFilter;
+import com.loopsports.filter.DaifuWhiteListFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class FilterConfig {
 
     @Bean
-    public WhiteListFilter whiteListFilter(){
-        return new WhiteListFilter();
+    public DaifuWhiteListFilter whiteListFilter(){
+        return new DaifuWhiteListFilter();
     }
 }

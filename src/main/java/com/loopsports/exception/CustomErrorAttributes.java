@@ -1,14 +1,11 @@
 package com.loopsports.exception;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.alibaba.fastjson.TypeReference;
 import com.loopsports.utils.JSONResult;
 import com.loopsports.utils.ResultGenerator;
 import org.springframework.boot.autoconfigure.web.DefaultErrorAttributes;
 import org.springframework.web.context.request.RequestAttributes;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class CustomErrorAttributes extends DefaultErrorAttributes {
